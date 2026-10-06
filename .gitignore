@@ -9,3 +9,7 @@ tools/dogs/*.png
 tools/dogs/meta.json
 tools/dogs/list.tsv
 tools/cutout/cutout
+tools/dogs/cutouts.jpg
+tools/dogs/montage.jpg
+tools/dogs/preview*.jpg
+tools/dogs/rotations.jpg
