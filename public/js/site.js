@@ -72,7 +72,7 @@
             <p class="per-date">soit ${C.euro(p.parDate)} le date, pour deux</p>
           </div>
           <ul>${f.points.map((pt) => `<li>${check}<span>${pt}</span></li>`).join('')}</ul>
-          <a class="btn ${f.featured ? 'btn-light' : 'btn-primary'}" href="commander.html?formule=${f.id}&poids=${size}">Choisir ${f.nom}</a>
+          <a class="btn ${f.featured ? 'btn-light' : 'btn-primary'}" href="/commander?formule=${f.id}&poids=${size}">Choisir ${f.nom}</a>
         </article>`;
     }).join('');
   }
