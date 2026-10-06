@@ -4,3 +4,8 @@ node_modules/
 .export-secret
 .DS_Store
 tools/out/
+tools/dogs/cand-*.jpg
+tools/dogs/*.png
+tools/dogs/meta.json
+tools/dogs/list.tsv
+tools/cutout/cutout

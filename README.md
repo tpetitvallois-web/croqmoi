@@ -80,15 +80,14 @@ Modèle `google/nano-banana-2/text-to-image`. Les fichiers arrivent dans `public
 Il reste ensuite à les référencer dans les pages (hero, cartes, témoignages). Le 2026-10-07 le compte
 RunComfy n'avait plus de crédits (« Insufficient Funds »), la génération a été reportée.
 
-### Montages fondateurs
+### Montages fondateurs (fait le 2026-10-07, sans RunComfy)
 
-`google/nano-banana-2/edit` a besoin d'une URL publique. Marche à suivre :
-
-1. Copier les originaux dans `public/img/founders/src/` (`lorenzo.png`, `tom.jpg`), déployer.
-2. `tools/gen_images.sh founders` écrit `public/img/founders/lorenzo.webp` et `tom.webp`.
-3. Supprimer `public/img/founders/src/`, redéployer.
-
-Zackari : photo attendue (celle avec le daim), recadrée en carré. En attendant, un visuel neutre.
+Détourage local avec Vision de macOS (`tools/cutout/cutout.swift`, compilé en `tools/cutout/cutout`,
+usage `cutout in.jpg out.png`) puis composition ImageMagick. Sources : portraits fournis par Tom
+(dans `~/Downloads`) et deux photos Wikimedia Commons (`tools/dogs/golden.jpg` CC0 Jiyoon Leee,
+`tools/dogs/teckel.jpg` CC BY 2.0 Dan Bennett, crédités dans les mentions légales). Les commandes
+exactes sont dans l'historique de `tools/dogs/` (montages `lorenzo-montage.jpg`, `tom-montage.jpg`).
+Zackari : photo avec le daim de Nara, recadrée en carré, sans montage.
 
 ## Règles de forme
 
