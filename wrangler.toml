@@ -1,0 +1,18 @@
+name = "croqmoi"
+main = "worker/index.js"
+account_id = "e2d939d2a4a4c9453d118a18388bfcb4"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "404-page"
+run_worker_first = ["/api/*"]
+
+[observability]
+enabled = true
+
+# KV créé le 2026-10-07 par : npx wrangler kv namespace create WAITLIST
+[[kv_namespaces]]
+binding = "WAITLIST"
+id = "e5f864b2ddac402bba33c1ad9573334a"

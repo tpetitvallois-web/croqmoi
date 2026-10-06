@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Croq'moi — Dînez avec votre chien, en tête-à-tête</title>
+<meta name="description" content="Croq'moi livre chaque semaine des dîners pour deux : votre assiette et la gamelle de votre chien, sur le même menu. Italien, sushi, raclette, burger. Vous mangez ensemble.">
+<meta property="og:title" content="Croq'moi — Un date qui ne vous posera jamais de lapin">
+<meta property="og:description" content="Des box hebdomadaires pour dîner avec votre chien, sur le même menu. Livrées le dimanche.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/svg/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Croq'moi, accueil">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><use href="img/svg/sprite.svg#logo"/></svg>
+      Croq'moi
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#concept">Le concept</a></li>
+      <li><a href="menus.html">La carte</a></li>
+      <li><a href="#formules">Formules</a></li>
+      <li><a href="#faq">Questions</a></li>
+      <li><a class="btn btn-primary" href="commander.html">Composer ma box</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob a"></div>
+  <div class="hero-blob b"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Un date qui ne vous posera <em>jamais</em> de lapin.</h1>
+      <p class="lead">Croq'moi livre chaque semaine des dîners pour deux. Votre assiette d'un côté, la gamelle de votre chien de l'autre, le même menu. Vous mangez ensemble, à la même table.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="commander.html">Composer ma première box <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="menus.html">Voir la carte de la semaine</a>
+      </div>
+      <p class="hero-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7l-9 9-5-5"/></svg> Livré le dimanche. Pause ou arrêt quand vous voulez.</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg id="hero-svg" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#2A1A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- lampe -->
+        <g id="lamp">
+          <line x1="300" y1="0" x2="300" y2="58"/>
+          <path d="M240 118 L300 58 L360 118 Z" fill="#F2B544"/>
+          <ellipse cx="300" cy="118" rx="60" ry="10" fill="#FBE7B8"/>
+          <ellipse id="lamp-glow" cx="300" cy="270" rx="200" ry="150" fill="#FBE7B8" stroke="none" opacity=".45"/>
+        </g>
+
+        <!-- femme (gauche) -->
+        <g id="woman">
+          <path d="M150 300 C 125 300 100 330 100 380 L 100 420 L 220 420 L 220 380 C 220 330 195 300 170 300 Z" fill="#D7263D"/>
+          <path d="M160 300 L160 275" />
+          <circle cx="160" cy="240" r="38" fill="#F6D6D2"/>
+          <!-- cheveux bouclés -->
+          <path d="M122 235 C 110 200 140 185 160 198 C 180 182 212 198 198 232 C 212 245 205 262 195 258 C 196 245 188 240 180 242 C 176 228 160 225 150 236 C 140 228 126 236 130 250 C 118 252 114 244 122 235 Z" fill="#2A1A17"/>
+          <!-- visage -->
+          <circle cx="150" cy="243" r="2.2" fill="#2A1A17" stroke="none"/>
+          <circle cx="172" cy="243" r="2.2" fill="#2A1A17" stroke="none"/>
+          <path d="M153 258 Q 161 265 169 258"/>
+          <!-- bras et fourchette -->
+          <path d="M205 345 C 230 350 245 345 258 330" stroke-width="3"/>
+          <g id="fork">
+            <line x1="258" y1="330" x2="272" y2="300"/>
+            <path d="M266 304 L 268 294 M272 303 L 276 294 M262 304 L 262 294"/>
+          </g>
+        </g>
+
+        <!-- chien (droite) -->
+        <g id="dog">
+          <!-- corps -->
+          <path d="M470 420 L 470 360 C 470 330 495 320 520 320 L 540 320 L 540 420 Z" fill="#F2B544"/>
+          <!-- tête -->
+          <g id="dog-head">
+            <path d="M455 300 C 450 262 475 240 505 240 C 535 240 556 262 552 300 C 550 320 530 335 505 335 C 480 335 458 320 455 300 Z" fill="#F2B544"/>
+            <!-- oreilles -->
+            <path d="M462 268 C 440 268 430 300 440 325 C 448 338 462 330 466 318 Z" fill="#D7A33A"/>
+            <path d="M548 268 C 570 268 580 300 570 325 C 562 338 548 330 544 318 Z" fill="#D7A33A"/>
+            <!-- museau -->
+            <ellipse cx="505" cy="312" rx="24" ry="16" fill="#FFF7EE"/>
+            <ellipse cx="505" cy="305" rx="8" ry="6" fill="#2A1A17" stroke="none"/>
+            <path d="M505 311 L 505 318 M 495 322 Q 505 330 515 322"/>
+            <!-- yeux -->
+            <circle cx="488" cy="286" r="3" fill="#2A1A17" stroke="none"/>
+            <circle cx="522" cy="286" r="3" fill="#2A1A17" stroke="none"/>
+            <!-- langue -->
+            <path id="tongue" d="M510 326 Q 514 340 506 342 Q 500 338 504 328" fill="#D7263D" stroke="#B01B30"/>
+          </g>
+          <!-- queue -->
+          <path id="tail" d="M540 380 C 575 375 590 345 580 320" stroke-width="7" stroke="#F2B544"/>
+          <path d="M540 380 C 575 375 590 345 580 320" stroke-width="2.5"/>
+        </g>
+
+        <!-- table -->
+        <g id="table">
+          <rect x="60" y="440" width="24" height="80" fill="#2A1A17" stroke="none"/>
+          <rect x="516" y="440" width="24" height="80" fill="#2A1A17" stroke="none"/>
+          <path d="M40 425 L 560 425 Q 575 425 575 440 Q 575 455 560 455 L 40 455 Q 25 455 25 440 Q 25 425 40 425 Z" fill="#FFFDF9"/>
+          <!-- nappe -->
+          <path d="M60 425 L 540 425 L 540 410 Q 300 395 60 410 Z" fill="#F6D6D2"/>
+        </g>
+
+        <!-- assiette humaine -->
+        <g id="plate">
+          <ellipse cx="200" cy="412" rx="70" ry="16" fill="#FFFDF9"/>
+          <ellipse cx="200" cy="410" rx="48" ry="10" fill="#F2B544"/>
+          <path d="M165 408 Q 180 398 200 406 Q 220 398 235 408" stroke="#D7263D" stroke-width="3"/>
+          <circle cx="188" cy="404" r="3" fill="#6B7F3A" stroke="none"/>
+          <circle cx="212" cy="403" r="3" fill="#6B7F3A" stroke="none"/>
+        </g>
+        <!-- bol du chien -->
+        <g id="bowl">
+          <path d="M350 400 L 440 400 L 430 425 L 360 425 Z" fill="#6B7F3A"/>
+          <ellipse cx="395" cy="400" rx="45" ry="9" fill="#E3E9CF"/>
+          <circle cx="380" cy="398" r="4" fill="#B01B30" stroke="none"/>
+          <circle cx="396" cy="396" r="4" fill="#B01B30" stroke="none"/>
+          <circle cx="410" cy="399" r="4" fill="#B01B30" stroke="none"/>
+          <circle cx="388" cy="402" r="3" fill="#2A1A17" stroke="none"/>
+          <circle cx="404" cy="402" r="3" fill="#2A1A17" stroke="none"/>
+        </g>
+        <!-- vapeur en cœurs -->
+        <g id="steam" stroke="none" fill="#D7263D" opacity=".9">
+          <path id="heart1" d="M200 370 c -6 -8 -18 -3 -14 6 c 3 6 10 10 14 14 c 4 -4 11 -8 14 -14 c 4 -9 -8 -14 -14 -6 z"/>
+          <path id="heart2" d="M395 362 c -6 -8 -18 -3 -14 6 c 3 6 10 10 14 14 c 4 -4 11 -8 14 -14 c 4 -9 -8 -14 -14 -6 z"/>
+        </g>
+
+        <!-- bougie -->
+        <g id="candle">
+          <rect x="290" y="372" width="20" height="40" rx="3" fill="#FFFDF9"/>
+          <line x1="300" y1="372" x2="300" y2="362"/>
+          <path id="flame" d="M300 362 C 290 350 296 338 300 332 C 304 338 310 350 300 362 Z" fill="#F2B544" stroke="#D7A33A"/>
+          <ellipse id="flame-core" cx="300" cy="354" rx="3" ry="5" fill="#FFFDF9" stroke="none"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Italien ce soir</span><span>Sushi vendredi</span><span>Raclette dimanche</span><span>Zéro lapin posé</span><span>Livré chaque dimanche</span><span>Burger du mardi</span><span>Pause quand vous voulez</span><span>Une table, deux assiettes</span>
+  </div>
+</div>
+
+<!-- CONCEPT / ÉTAPES -->
+<section class="section" id="concept">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Vous en avez marre des dates qui ne mènent à rien.</h2>
+      <p class="lead">Votre chien est déjà votre meilleur compagnon. Alors pourquoi le laisser manger seul dans la cuisine ? Croq'moi transforme le dîner en rendez-vous.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal">
+        <div class="step-art">
+          <svg viewBox="0 0 200 150" fill="none" stroke="#2A1A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="30" y="30" width="140" height="100" rx="10" fill="#FFFDF9"/>
+            <path d="M30 55 H170" />
+            <rect x="48" y="70" width="30" height="30" rx="6" fill="#F6D6D2"/>
+            <rect x="85" y="70" width="30" height="30" rx="6" fill="#F2B544"/>
+            <rect x="122" y="70" width="30" height="30" rx="6" fill="#E3E9CF"/>
+            <path class="draw" d="M92 86 l6 6 l12 -14" stroke="#D7263D" stroke-width="3"/>
+            <circle cx="45" cy="43" r="3" fill="#D7263D" stroke="none"/><circle cx="57" cy="43" r="3" fill="#F2B544" stroke="none"/><circle cx="69" cy="43" r="3" fill="#6B7F3A" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Vous choisissez vos dates</h3>
+        <p class="muted">Deux, trois ou cinq dîners par semaine, parmi huit saveurs. Vous dites le poids de votre chien, on calibre sa portion.</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-art">
+          <svg viewBox="0 0 200 150" fill="none" stroke="#2A1A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M40 60 L100 35 L160 60 L160 120 L100 145 L40 120 Z" fill="#F2B544"/>
+            <path d="M40 60 L100 85 L160 60 M100 85 V145" />
+            <path d="M70 47 L130 72" stroke="#D7263D" stroke-width="4"/>
+            <path d="M100 35 L100 85" stroke-dasharray="4 5"/>
+            <path d="M118 58 c -4 -5 -11 -2 -9 4 c 2 4 6 6 9 9 c 3 -3 7 -5 9 -9 c 2 -6 -5 -9 -9 -4 z" fill="#D7263D" stroke="none"/>
+          </svg>
+        </div>
+        <h3>La box arrive le dimanche</h3>
+        <p class="muted">Ingrédients frais pour vous, croquettes et toppings pour lui, dans deux compartiments. Chaque dîner est étiqueté à son prénom.</p>
+      </article>
+      <article class="step reveal">
+        <div class="step-art">
+          <svg viewBox="0 0 200 150" fill="none" stroke="#2A1A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <ellipse cx="65" cy="95" rx="40" ry="12" fill="#FFFDF9"/>
+            <ellipse cx="65" cy="93" rx="26" ry="7" fill="#F2B544"/>
+            <path d="M110 88 L160 88 L154 108 L116 108 Z" fill="#6B7F3A"/>
+            <ellipse cx="135" cy="88" rx="25" ry="6" fill="#E3E9CF"/>
+            <circle cx="128" cy="87" r="2.5" fill="#B01B30" stroke="none"/><circle cx="138" cy="86" r="2.5" fill="#B01B30" stroke="none"/><circle cx="145" cy="88" r="2.5" fill="#2A1A17" stroke="none"/>
+            <path d="M65 70 c -5 -7 -14 -2 -11 5 c 2 5 8 8 11 11 c 3 -3 9 -6 11 -11 c 3 -7 -6 -12 -11 -5 z" fill="#D7263D" stroke="none"/>
+            <path d="M135 64 c -5 -7 -14 -2 -11 5 c 2 5 8 8 11 11 c 3 -3 9 -6 11 -11 c 3 -7 -6 -12 -11 -5 z" fill="#D7263D" stroke="none"/>
+            <path d="M100 115 L100 130 M90 130 H110"/>
+          </svg>
+        </div>
+        <h3>Vous dînez ensemble</h3>
+        <p class="muted">Même menu, même heure, même table. Vous cuisinez en vingt minutes, il attend que vous vous asseyiez. Enfin, il essaie.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="split-inner">
+        <div class="split-side human" id="split-human">
+          <div>
+            <p class="who">Votre assiette</p>
+            <h3>Tagliatelles fraîches à la bolognaise, basilic du jardin</h3>
+          </div>
+          <div class="split-art">
+            <svg viewBox="0 0 300 200" fill="none" stroke="#FFF7EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <ellipse cx="150" cy="120" rx="120" ry="40" fill="#FFF7EE" fill-opacity=".15"/>
+              <ellipse cx="150" cy="115" rx="90" ry="28" fill="#F2B544" stroke="none"/>
+              <path d="M80 112 Q 110 95 150 110 T 220 112" stroke="#B01B30" stroke-width="5"/>
+              <path d="M95 122 Q 130 108 165 120 T 215 118" stroke="#FBE7B8" stroke-width="3"/>
+              <circle cx="120" cy="105" r="5" fill="#6B7F3A" stroke="none"/><circle cx="170" cy="100" r="5" fill="#6B7F3A" stroke="none"/><circle cx="190" cy="118" r="4" fill="#6B7F3A" stroke="none"/>
+              <path d="M250 60 L250 150 M243 65 L243 85 M257 65 L257 85" stroke-width="3"/>
+            </svg>
+          </div>
+          <ul class="chips"><li>Bœuf français</li><li>Tomates, oignon, ail</li><li>Prêt en 20 min</li></ul>
+        </div>
+        <div class="split-heart" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="#D7263D"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg>
+        </div>
+        <div class="split-side dog" id="split-dog">
+          <div>
+            <p class="who">Sa gamelle</p>
+            <h3>Croquettes bœuf et courgette, topping tomate douce et basilic</h3>
+          </div>
+          <div class="split-art">
+            <svg viewBox="0 0 300 200" fill="none" stroke="#FFF7EE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M70 105 L230 105 L212 160 L88 160 Z" fill="#2A1A17" fill-opacity=".35"/>
+              <ellipse cx="150" cy="105" rx="80" ry="20" fill="#E3E9CF" stroke="none"/>
+              <g fill="#B01B30" stroke="none"><circle cx="120" cy="100" r="7"/><circle cx="145" cy="96" r="7"/><circle cx="170" cy="101" r="7"/><circle cx="195" cy="104" r="6"/></g>
+              <g fill="#2A1A17" stroke="none"><circle cx="132" cy="108" r="5"/><circle cx="158" cy="107" r="5"/><circle cx="183" cy="110" r="5"/><circle cx="108" cy="108" r="5"/></g>
+              <path d="M130 90 Q 150 70 170 88" stroke="#6B7F3A" stroke-width="4"/>
+              <text x="150" y="190" text-anchor="middle" font-family="Figtree, sans-serif" font-size="14" fill="#FFF7EE" stroke="none">Portion 10 kg · 320 kcal</text>
+            </svg>
+          </div>
+          <ul class="chips"><li>Sans oignon ni ail</li><li>Sans sel ajouté</li><li>Topping sous 10 %</li></ul>
+        </div>
+      </div>
+      <div class="split-caption">
+        <p>Chaque recette existe en deux versions. La sienne est formulée par une nutritionniste canine, avec les ingrédients que vous partagez vraiment.</p>
+        <a class="btn btn-light" href="menus.html">Toute la carte</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVEURS -->
+<section class="section" id="saveurs" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Cette semaine à la carte</h2>
+      <p class="lead">Huit cuisines du monde, chacune adaptée pour lui. Retournez une carte pour voir sa version.</p>
+    </div>
+    <div class="menu-grid" id="menu-grid-home"></div>
+    <p class="center" style="margin-top:40px"><a class="btn btn-ghost" href="menus.html">Voir les huit saveurs</a></p>
+  </div>
+</section>
+
+<!-- FORMULES -->
+<section class="section" id="formules" style="background:var(--paper); border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Trois formules, un seul principe</h2>
+      <p class="lead">Un date, c'est votre repas et le sien, livrés ensemble. Le prix dépend du nombre de dates par semaine et de la taille de votre chien.</p>
+    </div>
+    <div class="size-switch reveal" role="group" aria-label="Taille du chien">
+      <button type="button" data-size="petit" aria-pressed="true">Petit <small>moins de 10 kg</small></button>
+      <button type="button" data-size="moyen" aria-pressed="false">Moyen <small>10 à 25 kg</small></button>
+      <button type="button" data-size="grand" aria-pressed="false">Grand <small>plus de 25 kg</small></button>
+    </div>
+    <div class="plans" id="plans"></div>
+    <p class="muted center" style="margin-top:32px; font-size:.95rem">Première box à -30 %. Livraison offerte dès trois dates par semaine, 3,90 € sinon. Pause ou arrêt en un clic, jusqu'au mercredi minuit.</p>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="section" id="temoignages">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Elles ont testé les premières box</h2>
+    </div>
+    <div class="quotes">
+      <figure class="quote reveal">
+        <blockquote>« Je mange enfin à table, et plus debout devant le frigo. Pistache attend que je m'asseye. »</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#D7263D"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></span>Camille, 27 ans, et Pistache, teckel</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote>« Le soir sushi, il regarde son bol, il me regarde, il regarde son bol. On a nos habitudes maintenant. »</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#D7263D"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></span>Inès, 24 ans, et Mochi, shiba</figcaption>
+      </figure>
+      <figure class="quote reveal">
+        <blockquote>« Mes dates se décommandaient la veille. Lui, il est à l'heure tous les soirs. »</blockquote>
+        <figcaption><span class="avatar" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#D7263D"><path d="M12 21s-7-4.6-9.3-9A5.3 5.3 0 0 1 12 6a5.3 5.3 0 0 1 9.3 6c-2.3 4.4-9.3 9-9.3 9z"/></svg></span>Léa, 29 ans, et Biscotte, cocker</figcaption>
+      </figure>
+    </div>
+    <p class="quote-note">Retours recueillis auprès de nos premières testeuses. Prénoms modifiés, chiens authentiques.</p>
+  </div>
+</section>
+
+<!-- FONDATEURS -->
+<section class="section" id="fondateurs" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Les fondateurs</h2>
+      <p class="lead">Trois amis, trois chiens dans la famille, et une même question : pourquoi lui et moi mangeons chacun dans notre coin ?</p>
+    </div>
+    <div class="founders">
+      <article class="founder reveal">
+        <div class="founder-photo"><img src="img/founders/lorenzo.webp" alt="Lorenzo Palmolungo" width="520" height="520" loading="lazy"></div>
+        <h3>Lorenzo Palmolungo</h3>
+        <p class="role">Produit et recettes</p>
+      </article>
+      <article class="founder reveal">
+        <div class="founder-photo"><img src="img/founders/zackari.webp" alt="Zackari Moujri" width="520" height="520" loading="lazy"></div>
+        <h3>Zackari Moujri</h3>
+        <p class="role">Opérations et livraison</p>
+      </article>
+      <article class="founder reveal">
+        <div class="founder-photo"><img src="img/founders/tom.webp" alt="Tom Petit Vallois" width="520" height="520" loading="lazy"></div>
+        <h3>Tom Petit Vallois</h3>
+        <p class="role">Marque et croissance</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal center">
+      <h2>Vos questions</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Mon chien peut-il vraiment manger « italien » ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="answer"><p>Oui. Sa version est une croquette complète bœuf et courgette, avec un topping tomate douce et basilic. Tout ce qui lui est déconseillé reste dans votre assiette : oignon, ail, sel, épices.</p></div>
+      </details>
+      <details>
+        <summary>Qui formule les recettes du chien ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="answer"><p>Une nutritionniste canine. Chaque croquette est un aliment complet. Le topping change de saveur et reste sous 10 % de l'apport du repas.</p></div>
+      </details>
+      <details>
+        <summary>Mon chien a des allergies.<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="answer"><p>Vous les indiquez au moment de composer votre box. Les saveurs incompatibles sont masquées. Poulet, bœuf, poisson, céréales et produits laitiers sont gérés.</p></div>
+      </details>
+      <details>
+        <summary>Quand et où livrez-vous ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="answer"><p>Le dimanche, en France métropolitaine, dans un colis isotherme. Le côté humain se garde quatre jours au frais, les croquettes se gardent un mois.</p></div>
+      </details>
+      <details>
+        <summary>Je pars en week-end, je fais comment ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="answer"><p>Vous mettez la semaine en pause depuis votre compte, jusqu'au mercredi minuit. Aucun engagement, vous arrêtez quand vous voulez.</p></div>
+      </details>
+      <details>
+        <summary>Et si mon chien pèse 40 kg ?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="answer"><p>Sa portion grandit avec lui. Trois tranches de poids, de moins de 10 kg à plus de 25 kg. Le supplément est de 1,50 € ou 3 € par date.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <svg class="cta-paws" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="#fff">
+        <g id="paw"><ellipse cx="40" cy="60" rx="14" ry="18"/><ellipse cx="20" cy="38" rx="7" ry="9"/><ellipse cx="35" cy="28" rx="7" ry="9"/><ellipse cx="52" cy="30" rx="7" ry="9"/><ellipse cx="64" cy="44" rx="6" ry="8"/></g>
+        <use href="#paw" x="140" y="120" transform="rotate(20 180 180)"/><use href="#paw" x="300" y="-10" transform="rotate(-15 340 50)"/><use href="#paw" x="520" y="150"/><use href="#paw" x="680" y="20" transform="rotate(30 720 80)"/><use href="#paw" x="620" y="210" transform="rotate(-25 660 270)"/>
+      </svg>
+      <h2>Ce soir, c'est vous deux.</h2>
+      <p>Composez votre première box en deux minutes. Les premières livraisons partent dès l'ouverture, et vous êtes prévenue par email.</p>
+      <a class="btn btn-light" href="commander.html">Composer ma box</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="font-size:1.3rem"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="img/svg/sprite.svg#logo"/></svg> Croq'moi</a>
+        <p style="margin-top:14px; max-width:34ch">Des dîners pour deux, livrés chaque semaine. Votre assiette, sa gamelle, le même menu.</p>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul><li><a href="menus.html">La carte</a></li><li><a href="index.html#formules">Formules</a></li><li><a href="index.html#faq">Questions</a></li><li><a href="commander.html">Composer ma box</a></li></ul>
+      </div>
+      <div>
+        <h4>Croq'moi</h4>
+        <ul><li><a href="index.html#fondateurs">Les fondateurs</a></li><li><a href="mailto:bonjour@croqmoi.fr">bonjour@croqmoi.fr</a></li><li><a href="https://instagram.com" rel="noopener">Instagram</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Croq'moi. Fait à Paris, avec trois chiens sous la table.</span>
+      <span>Les croquettes sont un aliment complet. Les toppings sont un plaisir.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

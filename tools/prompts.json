@@ -1,0 +1,27 @@
+{
+  "_style": "Editorial lifestyle photograph, warm candlelight and soft window light, cream and terracotta tones, shot on 35mm film with natural grain, shallow depth of field, no text, no watermark.",
+  "images": [
+    {
+      "file": "hero",
+      "aspect_ratio": "3:2",
+      "prompt": "A young French woman around 25, curly dark hair, casual knit sweater, sits at a small round wooden table in a cozy Parisian apartment, having dinner. Opposite her, a golden retriever sits on a chair at the table like a dinner guest, in front of a ceramic dog bowl. On her side a plate of fresh tagliatelle bolognese with basil and a glass of red wine. On the dog side a bowl of premium kibble with a small tomato-basil topping. One lit candle between them."
+    },
+    { "file": "duo-italien", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a plate of fresh tagliatelle bolognese with basil leaves; right, a ceramic dog bowl of dark kibble with a spoonful of soft tomato and basil topping. A small lit candle and a folded napkin between them." },
+    { "file": "duo-sushi", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a salmon poke bowl with vinegared rice, avocado and sesame; right, a ceramic dog bowl of salmon kibble sprinkled with crumbled nori. Chopsticks and a small lit candle between them." },
+    { "file": "duo-bistrot", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a plate of veal blanquette with pilaf rice and glazed carrots; right, a ceramic dog bowl of kibble with carrot pieces and a light broth drizzle. A small lit candle between them." },
+    { "file": "duo-raclette", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a plate of raclette with melted cheese over small potatoes and cured ham; right, a ceramic dog bowl of potato and turkey kibble with a few shavings of lactose-free cheese. A small lit candle between them." },
+    { "file": "duo-burger", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a smash burger with cheddar and sweet potato fries; right, a ceramic dog bowl of beef kibble with small homemade beef bites. A small lit candle between them." },
+    { "file": "duo-mexicain", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, chicken tacos with grilled corn, red beans and lime; right, a ceramic dog bowl of chicken and corn kibble topped with a few red beans, no spices. A small lit candle between them." },
+    { "file": "duo-indien", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a bowl of chicken coconut curry with basmati rice and coriander; right, a ceramic dog bowl of golden turmeric chicken kibble with rice. A small lit candle between them." },
+    { "file": "duo-brunch", "aspect_ratio": "3:2", "prompt": "Overhead flat lay on a cream linen tablecloth: left, a stack of pancakes with scrambled eggs, red berries and maple syrup; right, a ceramic dog bowl of oat and banana kibble topped with blueberries. A small lit candle between them." },
+    { "file": "temoignage-1", "aspect_ratio": "1:1", "prompt": "Portrait of a young woman around 27, short blond hair, laughing, sitting on her kitchen floor next to a dachshund that looks up at her, evening light in a small Paris apartment." },
+    { "file": "temoignage-2", "aspect_ratio": "1:1", "prompt": "Portrait of a young woman around 24, long black hair, sitting at a dining table beside a shiba inu who sits on the chair next to her, both looking at the camera, warm light." },
+    { "file": "temoignage-3", "aspect_ratio": "1:1", "prompt": "Portrait of a young woman around 29, red curly hair, hugging a cocker spaniel on a sofa, soft lamp light, cozy living room." },
+    { "file": "unboxing", "aspect_ratio": "4:3", "prompt": "An open cream cardboard delivery box on a kitchen counter, two compartments: fresh ingredients wrapped in paper on the left, a kraft bag of kibble and small topping jars on the right, a handwritten-style label reading nothing, a dog nose peeking at the edge of the frame." },
+    { "file": "livraison", "aspect_ratio": "3:2", "prompt": "A cream cardboard delivery box sitting on the doormat of a Parisian apartment door, a golden retriever sniffing it, morning light in the hallway." }
+  ],
+  "founders": [
+    { "file": "lorenzo", "source": "img/founders/src/lorenzo.png", "prompt": "Keep the man's face, hairstyle, blue blazer, white shirt and the plain grey background exactly as they are. Add a golden retriever sitting beside him on the right, its head at his shoulder height, the man resting one hand on the dog's back. Same soft studio lighting, realistic photograph." },
+    { "file": "tom", "source": "img/founders/src/tom.jpg", "prompt": "Keep the man's face, smile, white t-shirt, the glass in his hand and the ornate café interior exactly as they are. Add a small dachshund sitting on the wooden table in front of him, looking at the camera. Same warm café lighting, realistic photograph." }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "croqmoi",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Croq'moi — site vitrine et liste d'attente (Cloudflare Workers + static assets)",
+  "scripts": {
+    "dev": "wrangler dev --port 8767",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.147.0"
+  }
+}
