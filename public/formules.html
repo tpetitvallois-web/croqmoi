@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formules et prix — Croq'moi</title>
+<meta name="description" content="Deux, trois ou cinq dates par semaine. Le prix dépend du nombre de dîners et du poids de votre chien. Livraison offerte dès trois dates, pause et arrêt à tout moment.">
+<link rel="icon" href="img/svg/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<script>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/" aria-label="Croq'moi, accueil"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="img/svg/sprite.svg#logo"/></svg> Croq'moi</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/concept">Le concept</a></li>
+      <li><a href="/menus">La carte</a></li>
+      <li><a href="/formules" aria-current="page">Formules</a></li>
+      <li><a href="/faq">Questions</a></li>
+      <li><a class="btn btn-primary" href="/commander">Composer ma box</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <h1>Trois formules, un seul principe.</h1>
+      <p class="lead">Un date, c'est votre repas et le sien, livrés ensemble. Le prix dépend du nombre de dates par semaine et du poids de votre chien. Rien d'autre.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0" id="formules">
+    <div class="wrap">
+      <div class="size-switch reveal" role="group" aria-label="Taille du chien">
+        <button type="button" data-size="petit" aria-pressed="true">Petit <small>moins de 10 kg</small></button>
+        <button type="button" data-size="moyen" aria-pressed="false">Moyen <small>10 à 25 kg</small></button>
+        <button type="button" data-size="grand" aria-pressed="false">Grand <small>plus de 25 kg</small></button>
+      </div>
+      <div class="plans" id="plans"></div>
+      <p class="muted" style="margin-top:24px; font-size:.95rem">Prix par semaine, livraison comprise dès trois dates. Première box à -30 %.</p>
+    </div>
+  </section>
+
+  <!-- Comparatif -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal"><h2>Ce qui est compris</h2></div>
+      <div class="table-wrap reveal">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col">Dans la box</th><th scope="col">Premier rendez-vous</th><th scope="col" class="is-featured">Tête-à-tête</th><th scope="col">Inséparables</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Dates par semaine</th><td>2</td><td class="is-featured">3</td><td>5</td></tr>
+            <tr><th scope="row">Votre repas, ingrédients frais et fiche recette</th><td><span class="yes">Oui</span></td><td class="is-featured"><span class="yes">Oui</span></td><td><span class="yes">Oui</span></td></tr>
+            <tr><th scope="row">Ses croquettes, calibrées à son poids, à son prénom</th><td><span class="yes">Oui</span></td><td class="is-featured"><span class="yes">Oui</span></td><td><span class="yes">Oui</span></td></tr>
+            <tr><th scope="row">Un topping par date</th><td><span class="yes">Oui</span></td><td class="is-featured"><span class="yes">Oui</span></td><td><span class="yes">Oui</span></td></tr>
+            <tr><th scope="row">Changement de saveurs chaque semaine</th><td><span class="yes">Oui</span></td><td class="is-featured"><span class="yes">Oui</span></td><td><span class="yes">Oui</span></td></tr>
+            <tr><th scope="row">Livraison</th><td>3,90 €</td><td class="is-featured">Offerte</td><td>Offerte</td></tr>
+            <tr><th scope="row">Friandise surprise dans la box</th><td><span class="no">Non</span></td><td class="is-featured"><span class="no">Non</span></td><td><span class="yes">Oui</span></td></tr>
+            <tr><th scope="row">Pause et arrêt à tout moment</th><td><span class="yes">Oui</span></td><td class="is-featured"><span class="yes">Oui</span></td><td><span class="yes">Oui</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Poids -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap feature reveal">
+      <div class="feature-copy">
+        <h2>Le poids de votre chien</h2>
+        <p>Sa portion grandit avec lui, le prix aussi. Trois tranches, un supplément fixe par date.</p>
+        <div class="table-wrap">
+          <table class="compare small">
+            <thead><tr><th scope="col">Tranche</th><th scope="col">Poids</th><th scope="col">Supplément par date</th><th scope="col">Tête-à-tête, par semaine</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Petit</th><td>moins de 10 kg</td><td>inclus</td><td>38,90 €</td></tr>
+              <tr><th scope="row">Moyen</th><td>10 à 25 kg</td><td>+ 1,50 €</td><td>43,40 €</td></tr>
+              <tr><th scope="row">Grand</th><td>plus de 25 kg</td><td>+ 3,00 €</td><td>47,90 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Les portions sont calculées pour un chien adulte. Les calories de chaque date sont indiquées sur <a href="/menus">la carte</a>, pour 10 kg.</p>
+      </div>
+      <div class="feature-art">
+        <svg viewBox="0 0 400 300" fill="none" stroke="#2A1A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <g>
+            <path d="M40 230 L120 230 L110 260 L50 260 Z" fill="#6B7F3A"/><ellipse cx="80" cy="230" rx="40" ry="9" fill="#E3E9CF"/>
+            <circle cx="72" cy="228" r="3" fill="#B01B30" stroke="none"/><circle cx="88" cy="229" r="3" fill="#2A1A17" stroke="none"/>
+            <text x="80" y="285" text-anchor="middle" font-family="Figtree, sans-serif" font-size="13" fill="#6B5A55" stroke="none">petit</text>
+          </g>
+          <g>
+            <path d="M145 215 L255 215 L242 260 L158 260 Z" fill="#6B7F3A"/><ellipse cx="200" cy="215" rx="55" ry="12" fill="#E3E9CF"/>
+            <circle cx="185" cy="212" r="4" fill="#B01B30" stroke="none"/><circle cx="205" cy="214" r="4" fill="#2A1A17" stroke="none"/><circle cx="222" cy="212" r="4" fill="#B01B30" stroke="none"/>
+            <text x="200" y="285" text-anchor="middle" font-family="Figtree, sans-serif" font-size="13" fill="#6B5A55" stroke="none">moyen</text>
+          </g>
+          <g>
+            <path d="M275 200 L395 200 L380 260 L290 260 Z" fill="#6B7F3A"/><ellipse cx="335" cy="200" rx="60" ry="14" fill="#E3E9CF"/>
+            <circle cx="312" cy="197" r="5" fill="#B01B30" stroke="none"/><circle cx="335" cy="199" r="5" fill="#2A1A17" stroke="none"/><circle cx="358" cy="197" r="5" fill="#B01B30" stroke="none"/><circle cx="325" cy="206" r="4" fill="#2A1A17" stroke="none"/>
+            <text x="335" y="285" text-anchor="middle" font-family="Figtree, sans-serif" font-size="13" fill="#6B5A55" stroke="none">grand</text>
+          </g>
+          <path d="M80 190 c -5 -7 -14 -2 -11 5 c 2 5 8 8 11 11 c 3 -3 9 -6 11 -11 c 3 -7 -6 -12 -11 -5 z" fill="#D7263D" stroke="none"/>
+          <path d="M200 170 c -6 -8 -16 -2 -13 6 c 2 6 9 9 13 13 c 4 -4 11 -7 13 -13 c 3 -8 -7 -14 -13 -6 z" fill="#D7263D" stroke="none"/>
+          <path d="M335 150 c -7 -9 -18 -2 -15 7 c 3 7 10 10 15 15 c 5 -5 12 -8 15 -15 c 3 -9 -8 -16 -15 -7 z" fill="#D7263D" stroke="none"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comment on fixe le prix -->
+  <section class="section" style="background:var(--paper); border-block:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head reveal"><h2>Comment on fixe le prix</h2><p class="lead">Un date Tête-à-tête revient à 12,97 € pour deux. Voici, en ordre de grandeur, où va cet argent.</p></div>
+      <div class="steps">
+        <article class="step reveal">
+          <h3>Votre repas</h3>
+          <p class="muted">Environ 7 € d'ingrédients frais, pesés pour une personne. C'est le prix d'une portion chez les box repas, sans le gaspillage du fond de placard.</p>
+        </article>
+        <article class="step reveal">
+          <h3>Son repas</h3>
+          <p class="muted">Environ 3,50 € de croquettes premium et de topping pour un chien de 10 kg. Comparable aux abonnements de nourriture fraîche pour chien.</p>
+        </article>
+        <article class="step reveal">
+          <h3>La box et le froid</h3>
+          <p class="muted">Le reste couvre l'emballage isotherme, la préparation et la livraison du dimanche. Au-delà de trois dates, elle est comprise.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Règles -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal"><h2>Les règles, en clair</h2></div>
+      <div class="faq reveal">
+        <details open>
+          <summary>La première box à -30 %<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="answer"><p>La remise s'applique à votre première semaine, quelle que soit la formule. Tête-à-tête pour un petit chien revient à 27,23 € la première fois.</p></div>
+        </details>
+        <details>
+          <summary>Pause et arrêt<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="answer"><p>Aucun engagement. Vous mettez une semaine en pause ou vous arrêtez depuis votre compte, jusqu'au mercredi minuit pour la box du dimanche suivant.</p></div>
+        </details>
+        <details>
+          <summary>Changer de formule<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="answer"><p>À tout moment, dans le même délai. Le nouveau prix s'applique à la box suivante.</p></div>
+        </details>
+        <details>
+          <summary>Le paiement<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="answer"><p>Une fois les livraisons ouvertes, chaque box est débitée le jeudi, après la clôture des choix du mercredi. Aujourd'hui, rejoindre la liste n'engage à rien et ne débite rien.</p></div>
+        </details>
+      </div>
+      <p style="margin-top:32px"><a href="/faq">Toutes les questions</a></p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta reveal">
+        <h2>Vous avez votre formule ?</h2>
+        <p>Composez votre box en deux minutes. Le prix s'affiche au fur et à mesure.</p>
+        <a class="btn btn-light" href="/commander">Composer ma box</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" style="font-size:1.3rem"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="img/svg/sprite.svg#logo"/></svg> Croq'moi</a>
+        <p style="margin-top:14px; max-width:34ch">Des dîners pour deux, livrés chaque semaine. Votre assiette, sa gamelle, le même menu.</p>
+      </div>
+      <div>
+        <h4>Le site</h4>
+        <ul><li><a href="/concept">Le concept</a></li><li><a href="/menus">La carte</a></li><li><a href="/formules">Formules</a></li><li><a href="/faq">Questions</a></li><li><a href="/commander">Composer ma box</a></li></ul>
+      </div>
+      <div>
+        <h4>Croq'moi</h4>
+        <ul><li><a href="/#fondateurs">Les fondateurs</a></li><li><a href="mailto:bonjour@croqmoi.fr">bonjour@croqmoi.fr</a></li><li><a href="https://instagram.com" rel="noopener">Instagram</a></li><li><a href="/mentions-legales">Mentions légales</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Croq'moi. Fait à Paris, avec trois chiens sous la table.</span>
+      <span>Les croquettes sont un aliment complet. Les toppings sont un plaisir.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

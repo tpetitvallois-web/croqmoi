@@ -7,8 +7,9 @@ En ligne : https://croqmoi.gererseul-avis-worker.workers.dev (Cloudflare Workers
 
 ## Structure
 
-- `public/` : site statique sans build. `index.html` (accueil), `menus.html` (carte), `commander.html`
-  (configurateur + liste d'attente), `mentions-legales.html`, `404.html`.
+- `public/` : site statique sans build. `index.html` (accueil), `concept.html`, `menus.html` (carte),
+  `formules.html`, `faq.html`, `commander.html` (configurateur + liste d'attente), `mentions-legales.html`,
+  `404.html`. Liens internes sans extension (`/concept`, `/formules`…), Cloudflare sert le `.html`.
 - `public/js/data.js` : carte des saveurs, formules, prix. Un seul endroit à modifier pour changer
   un prix ou une recette.
 - `public/js/site.js` : navigation, cartes retournables, formules, animations GSAP.
