@@ -6,8 +6,9 @@
   try {
     const KEY = 'croq_attr';
     let attr = JSON.parse(localStorage.getItem(KEY) || 'null');
-    if (!attr) {
-      const q = new URLSearchParams(location.search);
+    const q = new URLSearchParams(location.search);
+    // Premier contact conservé, sauf si l'URL porte une campagne (utm ou code parrain) : le dernier clic payé ou parrainé l'emporte.
+    if (!attr || q.get('utm_source') || q.get('parrain')) {
       const ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : '';
       const sameSite = ref === location.hostname;
       attr = {
