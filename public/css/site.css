@@ -427,3 +427,12 @@ p:last-child { margin-bottom: 0; }
 .photo-band { border-radius: var(--radius-lg); overflow: hidden; margin-bottom: clamp(24px, 4vw, 40px); border: 1px solid var(--line); }
 .photo-band img { width: 100%; height: auto; display: block; aspect-ratio: 2.2 / 1; object-fit: cover; }
 .split-photo img { width: 100%; height: auto; display: block; aspect-ratio: 2.2 / 1; object-fit: cover; }
+
+/* Vidéos produit en boucle, muettes */
+.split-photo video, .feature-art.is-photo video { width: 100%; height: auto; display: block; background: var(--paper); }
+.split-photo video { aspect-ratio: 1.9 / 1; object-fit: cover; }
+.split-photo .motion-fallback, .feature-art.is-photo .motion-fallback { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .split-photo video, .feature-art.is-photo video { display: none; }
+  .split-photo .motion-fallback, .feature-art.is-photo .motion-fallback { display: block; }
+}
