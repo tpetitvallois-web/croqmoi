@@ -82,9 +82,10 @@
       total.textContent = C.euro(target);
     }
     total.dataset.v = target;
-    document.getElementById('s-promo').textContent = `Première box à ${C.euro(p.premiere + p.livraison)} (-30 %).`;
+    document.getElementById('s-promo').textContent = `Premier date offert : première box à ${C.euro(p.premiere + p.livraison)} au lieu de ${C.euro(p.semaine + p.livraison)}.`;
   }
 
+  if (window.CROQ_ATTR && window.CROQ_ATTR.parrain) document.getElementById('parrain').value = window.CROQ_ATTR.parrain;
   function refresh() { read(); refreshSaveurs(); read(); refreshSummary(); }
   form.addEventListener('change', refresh);
   form.addEventListener('input', refresh);
@@ -137,6 +138,8 @@
       formule: state.formule,
       saveurs: state.saveurs,
       prix: Math.round((p.semaine + p.livraison) * 100) / 100,
+      parrain: (document.getElementById('parrain').value || (window.CROQ_ATTR && window.CROQ_ATTR.parrain) || '').trim().toUpperCase(),
+      attribution: window.CROQ_ATTR || null,
     };
     try {
       const res = await fetch('/api/waitlist', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) });
@@ -145,6 +148,13 @@
       const prenom = payload.prenom ? `${payload.prenom}, on` : 'On';
       const chien = payload.chien.nom ? ` ${payload.chien.nom} et vous` : ' vous deux';
       document.getElementById('success-text').textContent = `${prenom} vous écrit dès que les livraisons ouvrent près de chez vous. La première table sera pour${chien}.`;
+      if (data.code) {
+        document.getElementById('success-code').textContent = data.code;
+        document.getElementById('success-referral').hidden = false;
+        const share = document.getElementById('share-link');
+        share.href = `${location.origin}/?parrain=${encodeURIComponent(data.code)}&utm_source=parrainage&utm_medium=referral`;
+        share.textContent = share.href.replace(/^https?:\/\//, '');
+      }
       go(5);
       if (hasGsap) {
         const check = document.getElementById('success-check');

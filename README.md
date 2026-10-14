@@ -9,7 +9,8 @@ En ligne : https://croqmoi.gererseul-avis-worker.workers.dev (Cloudflare Workers
 
 - `public/` : site statique sans build. `index.html` (accueil), `concept.html`, `menus.html` (carte),
   `formules.html`, `faq.html`, `commander.html` (configurateur + liste d'attente), `mentions-legales.html`,
-  `404.html`. Liens internes sans extension (`/concept`, `/formules`…), Cloudflare sert le `.html`.
+  `404.html`. Pages d'arrivée Google Ads / SEO : `abonnement-croquettes-chien.html` et
+  `box-pour-chien.html` (formulaire court `js/landing.js`). `robots.txt` et `sitemap.xml`. Liens internes sans extension (`/concept`, `/formules`…), Cloudflare sert le `.html`.
 - `public/js/data.js` : carte des saveurs, formules, prix. Un seul endroit à modifier pour changer
   un prix ou une recette.
 - `public/js/site.js` : navigation, cartes retournables, formules, animations GSAP.
@@ -43,7 +44,13 @@ npx wrangler secret put EXPORT_SECRET < .export-secret
 - `POST /api/waitlist` : JSON `{email, prenom, chien:{nom, poids, allergies}, formule, saveurs, prix}`.
   Email validé, formule et poids vérifiés, honeypot `website`, une inscription par IP et par minute.
   Clé KV `w:<email>` : une réinscription écrase la précédente.
-- `GET /api/waitlist?secret=…` : export CSV (séparateur `;`, BOM pour Excel). `&format=json` pour du JSON.
+- Chaque inscrite reçoit un code `CROQ-XXXXXX` (dérivé de l'email, clé KV `c:<code>` → email). Le
+  champ `parrain` est vérifié contre ces clés (`parrainValide`).
+- `attribution` : premier contact capturé côté navigateur dans `localStorage` (`croq_attr`) par
+  `site.js` : `utm_source/medium/campaign/content`, site d'origine, page d'arrivée, date. Envoyé
+  avec l'inscription. C'est ce qui permet un CAC par canal.
+- `GET /api/waitlist?secret=…` : export CSV (séparateur `;`, BOM pour Excel) avec code, parrain,
+  source, medium, campaign, landing. `&format=json` pour du JSON.
 - `DELETE /api/waitlist?secret=…&email=…` : supprime une inscription.
 
 Le secret est dans `.export-secret` (non versionné).
@@ -65,7 +72,10 @@ chien premium (Elmut, Pepette, Dog Chef) tournent entre 2 et 5 € par jour pour
 | Inséparables | 5 | 59,90 € | 11,98 € |
 
 Supplément par date : 10-25 kg +1,50 €, plus de 25 kg +3,00 €. Livraison 3,90 € pour la formule
-2 dates, offerte au-delà. Première box à -30 %. Tout est dans `public/js/data.js`.
+2 dates, offerte au-delà. Offre d'entrée depuis le 2026-10-14 : **le premier date est offert** (une
+portion humain + chien, soit le prix par semaine divisé par le nombre de dates ; remplace le -30 %).
+Parrainage : un date offert à la marraine à la première livraison de la filleule, premier date de
+la filleule offert. Tout est dans `public/js/data.js`.
 
 ## Photos (RunComfy)
 
@@ -89,6 +99,14 @@ usage `cutout in.jpg out.png`) puis composition ImageMagick. Sources : portraits
 `tools/dogs/teckel.jpg` CC BY 2.0 Dan Bennett, crédités dans les mentions légales). Les commandes
 exactes sont dans l'historique de `tools/dogs/` (montages `lorenzo-montage.jpg`, `tom-montage.jpg`).
 Zackari : photo avec le daim de Nara, recadrée en carré, sans montage.
+
+## Mesure d'audience
+
+Cloudflare Web Analytics (sans cookie) n'est pas encore branché : sa création demande le tableau de
+bord Cloudflare (Analytics & Logs → Web Analytics → Add a site, hostname
+`croqmoi.gererseul-avis-worker.workers.dev`), le jeton OAuth de wrangler n'y a pas accès. Coller
+ensuite le snippet fourni avant `</body>` dans chaque page. En attendant, la provenance de chaque
+inscrite est déjà dans l'export CSV.
 
 ## Règles de forme
 

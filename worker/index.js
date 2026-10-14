@@ -5,6 +5,18 @@ const FORMULES = new Set(['premier-rendez-vous', 'tete-a-tete', 'inseparables'])
 const POIDS = new Set(['petit', 'moyen', 'grand']);
 const SAVEURS = new Set(['italien', 'sushi', 'bistrot', 'raclette', 'burger', 'mexicain', 'indien', 'brunch']);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const CODE_RE = /^CROQ-[A-Z0-9]{6}$/;
+const ATTR_KEYS = ['source', 'medium', 'campaign', 'content', 'landing', 'date'];
+
+// Code de parrainage dérivé de l'email (stable, non devinable sans l'email).
+async function referralCode(email) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('croqmoi:' + email));
+  const bytes = new Uint8Array(buf);
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let out = '';
+  for (let i = 0; i < 6; i++) out += alphabet[bytes[i] % alphabet.length];
+  return 'CROQ-' + out;
+}
 
 const json = (data, status = 200) => new Response(JSON.stringify(data), { status, headers: JSON_HEADERS });
 
@@ -40,6 +52,17 @@ async function handleWaitlistPost(request, env) {
   if (await env.WAITLIST.get(rlKey)) return json({ ok: false, error: 'Doucement. Réessayez dans une minute.' }, 429);
   await env.WAITLIST.put(rlKey, '1', { expirationTtl: 60 });
 
+  const code = await referralCode(email);
+  const parrain = clean(body.parrain, 12).toUpperCase();
+  let parrainValide = false;
+  if (parrain && CODE_RE.test(parrain) && parrain !== code) {
+    parrainValide = Boolean(await env.WAITLIST.get(`c:${parrain}`));
+  }
+  const attribution = {};
+  if (body.attribution && typeof body.attribution === 'object') {
+    for (const k of ATTR_KEYS) attribution[k] = clean(body.attribution[k], 120);
+  }
+
   const record = {
     email,
     prenom: clean(body.prenom, 60),
@@ -51,11 +74,16 @@ async function handleWaitlistPost(request, env) {
     formule,
     saveurs,
     prix: Number.isFinite(Number(body.prix)) ? Number(body.prix) : null,
+    code,
+    parrain: parrain || '',
+    parrainValide,
+    attribution,
     date: new Date().toISOString(),
-    source: clean(request.headers.get('referer'), 200),
+    referer: clean(request.headers.get('referer'), 200),
   };
   await env.WAITLIST.put(`w:${email}`, JSON.stringify(record));
-  return json({ ok: true });
+  await env.WAITLIST.put(`c:${code}`, email);
+  return json({ ok: true, code });
 }
 
 function csvCell(v) {
@@ -82,10 +110,11 @@ async function handleWaitlistExport(url, env) {
 
   if (url.searchParams.get('format') === 'json') return json({ ok: true, count: rows.length, rows });
 
-  const head = ['date', 'email', 'prenom', 'chien', 'poids', 'allergies', 'formule', 'saveurs', 'prix'];
+  const head = ['date', 'email', 'prenom', 'chien', 'poids', 'allergies', 'formule', 'saveurs', 'prix', 'code', 'parrain', 'parrain_valide', 'source', 'medium', 'campaign', 'content', 'landing', 'premier_contact'];
   const lines = [head.join(';')];
   for (const r of rows) {
-    lines.push([r.date, r.email, r.prenom, r.chien?.nom, r.chien?.poids, r.chien?.allergies, r.formule, r.saveurs, r.prix].map(csvCell).join(';'));
+    const a = r.attribution || {};
+    lines.push([r.date, r.email, r.prenom, r.chien?.nom, r.chien?.poids, r.chien?.allergies, r.formule, r.saveurs, r.prix, r.code, r.parrain, r.parrainValide ? 'oui' : '', a.source, a.medium, a.campaign, a.content, a.landing, a.date].map(csvCell).join(';'));
   }
   return new Response('﻿' + lines.join('\n'), {
     headers: { 'content-type': 'text/csv; charset=utf-8', 'content-disposition': 'attachment; filename="croqmoi-liste-attente.csv"', 'cache-control': 'no-store' },
@@ -98,6 +127,8 @@ async function handleWaitlistDelete(url, env) {
   if (!env.EXPORT_SECRET || secret !== env.EXPORT_SECRET) return json({ ok: false, error: 'Accès refusé' }, 403);
   const email = (url.searchParams.get('email') || '').toLowerCase();
   if (!email) return json({ ok: false, error: 'email manquant' }, 400);
+  const existing = await env.WAITLIST.get(`w:${email}`);
+  if (existing) { const r = JSON.parse(existing); if (r.code) await env.WAITLIST.delete(`c:${r.code}`); }
   await env.WAITLIST.delete(`w:${email}`);
   return json({ ok: true });
 }

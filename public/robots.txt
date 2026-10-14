@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Sitemap: https://croqmoi.gererseul-avis-worker.workers.dev/sitemap.xml

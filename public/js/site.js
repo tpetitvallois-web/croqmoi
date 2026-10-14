@@ -1,6 +1,28 @@
 // Croq'moi — comportements communs + animations (GSAP si présent).
 (function () {
   const C = window.CROQ;
+
+  /* Attribution : on garde le premier contact (UTM, site d'origine, page d'arrivée) pour savoir d'où vient chaque inscrite. */
+  try {
+    const KEY = 'croq_attr';
+    let attr = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (!attr) {
+      const q = new URLSearchParams(location.search);
+      const ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : '';
+      const sameSite = ref === location.hostname;
+      attr = {
+        source: q.get('utm_source') || (sameSite ? '' : ref) || 'direct',
+        medium: q.get('utm_medium') || (q.get('utm_source') ? '' : sameSite ? '' : ref ? 'referral' : 'none'),
+        campaign: q.get('utm_campaign') || '',
+        content: q.get('utm_content') || q.get('utm_term') || '',
+        landing: location.pathname,
+        date: new Date().toISOString().slice(0, 10),
+      };
+      if (q.get('parrain')) attr.parrain = q.get('parrain');
+      localStorage.setItem(KEY, JSON.stringify(attr));
+    }
+    window.CROQ_ATTR = attr;
+  } catch (e) { window.CROQ_ATTR = null; }
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasGsap = typeof gsap !== 'undefined' && !reduced;
   const hasST = hasGsap && typeof ScrollTrigger !== 'undefined';

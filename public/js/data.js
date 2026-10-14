@@ -95,7 +95,8 @@ window.CROQ = (function () {
   };
 
   const livraison = (formule) => (formule.dates >= 3 ? 0 : 3.9);
-  const remisePremiereBox = 0.3;
+  // Offre d'entrée : le premier date est offert (une portion humain + chien sur la première box).
+  // Parrainage : un date offert à la marraine sur sa box suivante, le premier date de la filleule est offert.
 
   function prix(formuleId, poidsId) {
     const f = formules.find((x) => x.id === formuleId);
@@ -105,7 +106,8 @@ window.CROQ = (function () {
       semaine,
       parDate: semaine / f.dates,
       livraison: livraison(f),
-      premiere: Math.round((semaine * (1 - remisePremiereBox)) * 100) / 100,
+      offert: Math.round((semaine / f.dates) * 100) / 100,
+      premiere: Math.round((semaine - semaine / f.dates) * 100) / 100,
     };
   }
 
@@ -136,5 +138,5 @@ window.CROQ = (function () {
     return '<svg viewBox="0 0 120 120" fill="none" stroke="#2A1A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"' + (extra || '') + '>' + (art[key] || '') + '</svg>';
   }
 
-  return { saveurs, formules, poids, prix, euro, allergenes, svgFor, remisePremiereBox };
+  return { saveurs, formules, poids, prix, euro, allergenes, svgFor };
 })();

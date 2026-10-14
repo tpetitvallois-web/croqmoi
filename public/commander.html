@@ -91,6 +91,11 @@
             <input type="email" id="email" name="email" placeholder="camille@exemple.fr" autocomplete="email" required maxlength="254">
             <p class="error">Vérifiez l'adresse email.</p>
           </div>
+          <div class="field">
+            <label for="parrain">Le code d'une amie, si vous en avez un</label>
+            <input type="text" id="parrain" name="parrain" placeholder="CROQ-XXXXXX" autocomplete="off" maxlength="12" style="text-transform:uppercase">
+            <p class="hint">Son code vous offre votre premier date. Et à elle, un date sur sa prochaine box.</p>
+          </div>
           <div class="honeypot" aria-hidden="true"><label>Site web<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
           <p class="muted" style="font-size:.9rem">En vous inscrivant, vous acceptez de recevoir nos emails d'ouverture. Un lien de désinscription figure dans chacun.</p>
           <p class="error" id="submit-error" style="display:none; color:var(--cherry)"></p>
@@ -105,6 +110,11 @@
           </svg>
           <h2>Vous êtes sur la liste.</h2>
           <p class="lead center" id="success-text">On vous écrit dès que les livraisons ouvrent près de chez vous.</p>
+          <div id="success-referral" hidden style="margin-top:28px">
+            <p class="muted">Votre code à partager. Chaque amie qui s'inscrit avec reçoit son premier date offert, et vous un date sur votre box suivante.</p>
+            <p><span class="code-box" id="success-code"></span></p>
+            <p class="muted" style="font-size:.95rem">Ou le lien direct : <a id="share-link" href="/"></a></p>
+          </div>
           <p style="margin-top:28px"><a class="btn btn-ghost" href="/menus">Relire la carte en attendant</a></p>
         </section>
       </form>
