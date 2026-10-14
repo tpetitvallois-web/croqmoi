@@ -419,3 +419,11 @@ p:last-child { margin-bottom: 0; }
 .mini-saveurs { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px; }
 .mini-saveurs div { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; text-align: center; font-weight: 600; }
 .mini-saveurs svg { width: 64px; height: 64px; margin: 0 auto 6px; }
+
+/* Photos produit */
+.step-art img { width: 100%; height: 100%; object-fit: cover; }
+.feature-art.is-photo { padding: 0; overflow: hidden; }
+.feature-art.is-photo img { width: 100%; height: auto; display: block; }
+.photo-band { border-radius: var(--radius-lg); overflow: hidden; margin-bottom: clamp(24px, 4vw, 40px); border: 1px solid var(--line); }
+.photo-band img { width: 100%; height: auto; display: block; aspect-ratio: 2.2 / 1; object-fit: cover; }
+.split-photo img { width: 100%; height: auto; display: block; aspect-ratio: 2.2 / 1; object-fit: cover; }
