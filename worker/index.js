@@ -133,9 +133,84 @@ async function handleWaitlistDelete(url, env) {
   return json({ ok: true });
 }
 
+// --- Mesure d'activation : événements anonymes (vue de page, clic vers la carte), 90 jours.
+const EVENT_TYPES = new Set(['pv', 'cta']);
+async function handleEvent(request, env) {
+  if (!env.WAITLIST) return json({ ok: false }, 503);
+  let body;
+  try { body = JSON.parse(await request.text()); } catch { return json({ ok: false }, 400); }
+  const t = clean(body.t, 8);
+  if (!EVENT_TYPES.has(t)) return json({ ok: false }, 400);
+  const ev = {
+    t,
+    id: clean(body.id, 24),
+    v: clean(body.v, 2),
+    p: clean(body.p, 80),
+    target: clean(body.target, 80),
+    where: clean(body.where, 40),
+    s: clean(body.s, 60),
+    m: clean(body.m, 30),
+    c: clean(body.c, 60),
+    at: new Date().toISOString(),
+  };
+  if (!ev.id) return json({ ok: false }, 400);
+  const key = `e:${ev.at}:${Math.random().toString(36).slice(2, 8)}`;
+  await env.WAITLIST.put(key, JSON.stringify(ev), { expirationTtl: 60 * 60 * 24 * 90 });
+  return json({ ok: true });
+}
+
+async function handleStats(url, env) {
+  if (!env.WAITLIST) return json({ ok: false }, 503);
+  const secret = url.searchParams.get('secret') || '';
+  if (!env.EXPORT_SECRET || secret !== env.EXPORT_SECRET) return json({ ok: false, error: 'Accès refusé' }, 403);
+  const events = [];
+  let cursor;
+  do {
+    const page = await env.WAITLIST.list({ prefix: 'e:', cursor, limit: 1000 });
+    const vals = await Promise.all(page.keys.map((k) => env.WAITLIST.get(k.name)));
+    for (const v of vals) if (v) events.push(JSON.parse(v));
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  const visitors = new Map(); // id -> { v, s, carte, pages:Set, first }
+  for (const e of events) {
+    let r = visitors.get(e.id);
+    if (!r) { r = { v: e.v || '?', s: e.s || 'direct', carte: false, pages: new Set(), first: e.at.slice(0, 10) }; visitors.set(e.id, r); }
+    if (e.t === 'pv') r.pages.add(e.p);
+    if ((e.t === 'pv' && e.p === '/menus') || (e.t === 'cta' && e.target === '/menus')) r.carte = true;
+  }
+  const bucket = () => ({ visiteurs: 0, carte: 0, taux: 0 });
+  const total = bucket(), byVariant = {}, bySource = {}, byDay = {};
+  for (const r of visitors.values()) {
+    for (const [map, key] of [[null, null], [byVariant, r.v], [bySource, r.s], [byDay, r.first]]) {
+      const b = map ? (map[key] = map[key] || bucket()) : total;
+      b.visiteurs += 1; if (r.carte) b.carte += 1;
+    }
+  }
+  const finish = (b) => { b.taux = b.visiteurs ? Math.round((b.carte / b.visiteurs) * 1000) / 10 : 0; return b; };
+  finish(total); Object.values(byVariant).forEach(finish); Object.values(bySource).forEach(finish); Object.values(byDay).forEach(finish);
+  const waitlist = (await env.WAITLIST.list({ prefix: 'w:' })).keys.length;
+  const out = { ok: true, activation: 'visiteurs ayant atteint la carte (/menus) ÷ visiteurs', evenements: events.length, total, parVariante: byVariant, parSource: bySource, parJour: byDay, inscrits: waitlist, genere: new Date().toISOString() };
+
+  if (url.searchParams.get('format') === 'html') {
+    const row = (k, b) => `<tr><td>${k}</td><td>${b.visiteurs}</td><td>${b.carte}</td><td><strong>${b.taux} %</strong></td></tr>`;
+    const table = (title, obj) => `<h2>${title}</h2><table><tr><th></th><th>Visiteurs</th><th>Ont atteint la carte</th><th>Activation</th></tr>${Object.entries(obj).sort().map(([k, b]) => row(k, b)).join('')}</table>`;
+    const html = `<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Croq'moi · activation</title>
+<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;color:#2A1A17;background:#FFF7EE}table{border-collapse:collapse;width:100%;margin:12px 0 28px}td,th{border-bottom:1px solid #EADFD3;padding:8px 10px;text-align:left}th{font-weight:600;color:#6B5A55}.big{font-size:2.6rem;font-weight:700}</style>
+<h1>Croq'moi · activation</h1><p>${out.activation}. Variante A : bouton « Composer ma box ». Variante B : bouton « Voir la carte ».</p>
+<p class="big">${total.taux} %</p><p>${total.carte} visiteurs sur ${total.visiteurs} ont atteint la carte · ${waitlist} inscrits sur la liste · ${events.length} événements</p>
+${table('Par variante du hero', byVariant)}${table('Par source', bySource)}${table('Par jour de première visite', byDay)}
+<p><small>Généré le ${out.genere}. Identifiant anonyme par navigateur, aucun cookie.</small></p></html>`;
+    return new Response(html, { headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'no-store' } });
+  }
+  return json(out);
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/event' && request.method === 'POST') return handleEvent(request, env);
+    if (url.pathname === '/api/stats' && request.method === 'GET') return handleStats(url, env);
     if (url.pathname === '/api/waitlist') {
       if (request.method === 'POST') return handleWaitlistPost(request, env);
       if (request.method === 'GET') return handleWaitlistExport(url, env);

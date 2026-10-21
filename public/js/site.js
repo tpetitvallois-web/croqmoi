@@ -24,6 +24,47 @@
     }
     window.CROQ_ATTR = attr;
   } catch (e) { window.CROQ_ATTR = null; }
+
+  /* Mesure d'activation : identifiant anonyme par navigateur, variante A/B du hero, événements envoyés au Worker. */
+  let VID = '', VAR = 'A';
+  try {
+    VID = localStorage.getItem('croq_vid') || (Math.random().toString(36).slice(2, 10) + Date.now().toString(36));
+    localStorage.setItem('croq_vid', VID);
+    VAR = localStorage.getItem('croq_var') || (Math.random() < 0.5 ? 'A' : 'B');
+    localStorage.setItem('croq_var', VAR);
+  } catch (e) {}
+  const track = (t, extra) => {
+    if (!VID) return;
+    const a = window.CROQ_ATTR || {};
+    const payload = JSON.stringify(Object.assign({ t, id: VID, v: VAR, p: location.pathname, s: a.source || '', m: a.medium || '', c: a.campaign || '' }, extra || {}));
+    try {
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/event', new Blob([payload], { type: 'text/plain' }));
+      else fetch('/api/event', { method: 'POST', body: payload, keepalive: true });
+    } catch (e) {}
+  };
+  window.CROQ_TRACK = track;
+  document.documentElement.dataset.variant = VAR;
+
+  /* Variante B : le bouton principal du hero mène à la carte, le lien secondaire au configurateur. */
+  const heroPrimary = document.getElementById('hero-primary');
+  const heroSecondary = document.getElementById('hero-secondary');
+  if (heroPrimary && heroSecondary && VAR === 'B') {
+    heroPrimary.href = '/menus';
+    heroPrimary.querySelector('.label').textContent = 'Voir la carte de la semaine';
+    heroSecondary.href = '/commander';
+    heroSecondary.textContent = 'Composer ma box';
+  }
+
+  track('pv');
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (href === '/menus' || href.startsWith('/menus?')) {
+      const where = a.closest('section, header, footer');
+      track('cta', { target: '/menus', where: where ? (where.className.split(' ')[0] || where.id || where.tagName.toLowerCase()) : 'page' });
+    }
+  });
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasGsap = typeof gsap !== 'undefined' && !reduced;
   const hasST = hasGsap && typeof ScrollTrigger !== 'undefined';
@@ -46,8 +87,8 @@
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* Marquee : on double la piste pour la boucle */
-  const track = document.querySelector('.marquee-track');
-  if (track) track.innerHTML += track.innerHTML;
+  const marquee = document.querySelector('.marquee-track');
+  if (marquee) marquee.innerHTML += marquee.innerHTML;
 
   /* Cartes menus */
   function menuCard(s) {

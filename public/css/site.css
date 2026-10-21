@@ -436,3 +436,15 @@ p:last-child { margin-bottom: 0; }
   .split-photo video, .feature-art.is-photo video { display: none; }
   .split-photo .motion-fallback, .feature-art.is-photo .motion-fallback { display: block; }
 }
+
+/* Hero : un bouton, un lien ; mobile d'abord */
+.hero-link { font-weight: 600; text-decoration: underline; text-underline-offset: 4px; color: var(--ink); padding: 10px 4px; }
+.hero-link:hover { color: var(--cherry); }
+@media (max-width: 860px) {
+  .hero { padding-top: 20px; }
+  .hero h1 { font-size: clamp(2.1rem, 9vw, 2.75rem); margin-bottom: 14px; }
+  .hero .lead { font-size: 1.05rem; margin-bottom: 20px; }
+  .hero-art { order: 2; max-width: 360px; margin-top: 28px; }
+  .hero-actions { gap: 10px; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+}
