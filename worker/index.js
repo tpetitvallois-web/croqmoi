@@ -162,7 +162,8 @@ async function handleEvent(request, env) {
 async function handleStats(url, env) {
   if (!env.WAITLIST) return json({ ok: false }, 503);
   const secret = url.searchParams.get('secret') || '';
-  if (!env.EXPORT_SECRET || secret !== env.EXPORT_SECRET) return json({ ok: false, error: 'Accès refusé' }, 403);
+  const allowed = [env.EXPORT_SECRET, env.STATS_SECRET].filter(Boolean);
+  if (!allowed.includes(secret)) return json({ ok: false, error: 'Accès refusé' }, 403);
   const events = [];
   let cursor;
   do {
